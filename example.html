@@ -1,0 +1,13 @@
+<script src="https://unpkg.com/diagram-as-code"></script>
+<script>
+    const client = new Client();
+    const loadbalancer = new Elb();
+    const webserver = new Ec2Cluster();
+    const databases = new RdsCluster();
+
+    client.getsDataFrom(loadbalancer);
+    loadbalancer.getsDataFrom(webserver);
+    webserver.getsDataFrom(databases);
+
+    diagram.render();
+</script>
